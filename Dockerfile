@@ -2,7 +2,7 @@
 #
 # Includes:  PeTTa, MORK, PathMap
 
-FROM swipl:latest
+FROM docker.io/library/swipl:latest
 
 # Install system build tools, Python, etc
 RUN apt-get update \
