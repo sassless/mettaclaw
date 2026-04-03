@@ -30,7 +30,7 @@ def require_license_acceptance():
 
 def config_run_mettaclaw(output_path):
     print(" ")
-    print("Welcome to Omegaclaw IRC!")
+    print("Welcome to OmegaClaw IRC!")
     print(" ")
     require_license_acceptance()
 
@@ -68,18 +68,18 @@ fi
 
 printf '%s\n' \
   '============================================' \
-  ' QuakeNet / Omegaclaw instructions' \
+  ' QuakeNet / OmegaClaw Instructions' \
   '============================================' \
   'Please go to https://webchat.quakenet.org/' \
   'and enter your name and channel.' \
   '' \
-  'Stop omegaclaw:' \
+  'Stop OmegaClaw:' \
   '  docker stop omegaclaw' \
   '' \
-  'Restart omegaclaw:' \
+  'Restart OmegaClaw:' \
   '  docker start omegaclaw' \
   '' \
-  'Examine log file in case or problem:' \
+  'Examine log file in case of problem:' \
   '  docker logs -f omegaclaw' \
   '' \
 
