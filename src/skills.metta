@@ -14,6 +14,8 @@
     "- Search the web: (search string_in_quotes)"
     "- Search the web using the Tavily Search Agent: (tavily-search string_in_quotes)"
     "- Get technical analysis for a stock ticker using the Technical Analysis Agent: (technical-analysis ticker_in_quotes)"
+    "- Search Agentverse for suitable active agents by capability, name, or protocol text. Prefer specific product or protocol names over generic phrases: (agent-search query_in_quotes)"
+    "- Search Agentverse with a custom result limit: (agent-search query_in_quotes max_results)"
     "- Inspect an Agentverse agent's published request models by agent address: (agent-input-models agent_address_in_quotes)"
     "- Call an Agentverse agent by address with a JSON object payload. If needed, pass a third argument with a request model digest, protocol digest, or protocol name to disambiguate: (call-agent agent_address_in_quotes payload_json_in_quotes selector_in_quotes)"
     ;CODE EXECUTION:
@@ -51,6 +53,12 @@
 
 (= (technical-analysis $ticker)
    (py-call (agentverse.technical_analysis $ticker)))
+
+(= (agent-search $query)
+   (py-call (agentverse.agent_search $query)))
+
+(= (agent-search $query $limit)
+   (py-call (agentverse.agent_search $query $limit)))
 
 (= (agent-input-models $address)
    (py-call (agentverse.agent_input_models $address)))
