@@ -14,6 +14,8 @@
     "- Search the web: (search string_in_quotes)"
     "- Search the web using the Tavily Search Agent: (tavily-search string_in_quotes)"
     "- Get technical analysis for a stock ticker using the Technical Analysis Agent: (technical-analysis ticker_in_quotes)"
+    "- Inspect an Agentverse agent's published request models by agent address: (agent-input-models agent_address_in_quotes)"
+    "- Call an Agentverse agent by address with a JSON object payload. If needed, pass a third argument with a request model digest, protocol digest, or protocol name to disambiguate: (call-agent agent_address_in_quotes payload_json_in_quotes selector_in_quotes)"
     ;CODE EXECUTION:
     "- Execute MeTTa expression: (metta sexpression)"
     "Example to invoke Non-Axiomatic Logic via MeTTa: "
@@ -49,6 +51,15 @@
 
 (= (technical-analysis $ticker)
    (py-call (agentverse.technical_analysis $ticker)))
+
+(= (agent-input-models $address)
+   (py-call (agentverse.agent_input_models $address)))
+
+(= (call-agent $address $payload)
+   (py-call (agentverse.call_agent $address $payload)))
+
+(= (call-agent $address $payload $selector)
+   (py-call (agentverse.call_agent $address $payload $selector)))
 
 !(import_prolog_functions_from_file (library mettaclaw ./src/skills.pl) (shell first_char))
 
